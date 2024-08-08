@@ -1,0 +1,47 @@
+{
+	"name": "@alexvyber/fastify-knex",
+	"version": "0.0.0",
+	"description": "Fastify KnexJS Plugin",
+	"keywords": ["fastify", "knex.js", "plugin"],
+	"main": "src/index.ts",
+	"module": "src/index.ts",
+	"types": "src/index.ts",
+	"license": "MIT",
+	"author": "Alex Vyber",
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		}
+	},
+	"files": ["dist/"],
+	"scripts": {
+		"build": "pnpm build:cjs && pnpm build:esm && pnpm build:tsc",
+		"build:cjs": "swc ./src/index.ts --config-file ./.config/.swcrc -o dist/index.js  -C module.type=commonjs",
+		"build:esm": "swc ./src/index.ts --config-file ./.config/.swcrc -o dist/index.mjs -C module.type=es6",
+		"build:tsc": "tsc --project .config/tsconfig.build.json"
+	},
+	"dependencies": {
+		"fastify-plugin": "^4.5.1",
+		"knex": "^3.1.0"
+	},
+	"devDependencies": {
+		"@types/node": "^22.1.0",
+		"@swc/cli": "0.4.0",
+		"@swc/core": "1.7.5",
+		"fastify": "^4.28.1",
+		"typescript": "5.5.4"
+	},
+	"publishConfig": {
+		"exports": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.js",
+			"types": "./dist/index.d.ts"
+		},
+		"main": "dist/index.js",
+		"module": "dist/index.mjs",
+		"types": "dist/index.d.ts"
+	},
+	"packageManager": "pnpm@9.7.0+sha512.dc09430156b427f5ecfc79888899e1c39d2d690f004be70e05230b72cb173d96839587545d09429b55ac3c429c801b4dc3c0e002f653830a420fa2dd4e3cf9cf"
+}

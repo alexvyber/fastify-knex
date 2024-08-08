@@ -1,0 +1,16 @@
+{
+	"include": ["src/**/*.ts"],
+	"exclude": ["node_modules", "dist"],
+	"compilerOptions": {
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"lib": ["ES2023"],
+		"resolveJsonModule": true,
+		"target": "ES2023",
+		"strict": true,
+		"incremental": true,
+		"skipLibCheck": true,
+		"useUnknownInCatchVariables": false
+	}
+}
